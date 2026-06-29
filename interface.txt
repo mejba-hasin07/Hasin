@@ -1,0 +1,48 @@
+static class Budget
+{
+    public static int foodBudget = 100;
+}
+
+interface Eater
+{
+    public void Eat();
+}
+
+interface Worker
+{
+    public void Work();
+}
+
+class HumanWorker : Eater, Worker
+{
+    public void Eat()
+    {
+        Console.WriteLine("Worker eats");
+        Budget.foodBudget -= 10;
+    }
+
+    public void Work()
+    {
+        Console.WriteLine("Worker is working");
+    }
+}
+class AIWorker : Worker
+{
+    public void Work()
+    {
+        Console.WriteLine("AI WORKER IS WORKING");
+    }
+}
+class InterfaceDemo
+{
+    static void Main()
+    {
+        HumanWorker worker = new HumanWorker();
+        Feed(worker);
+    }
+
+    static void Feed(Eater eater)
+    {
+        eater.Eat();
+    }
+}
